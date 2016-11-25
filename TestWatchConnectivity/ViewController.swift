@@ -35,6 +35,7 @@ class ViewController: UIViewController, WCSessionDelegate {
         let reachable =  self.session.isReachable
         let paired    =  self.session.isPaired
         
+        //Test with sendMessage and doesn't work as well!!
         //self.session.sendMessage(["a":"hello"], replyHandler: nil, errorHandler: { (error) in
         //    let err = error
         //})
@@ -42,7 +43,7 @@ class ViewController: UIViewController, WCSessionDelegate {
         if WCSession.isSupported() {
             // 2
             do {
-                let dictionary = ["movies": "test"]
+                let dictionary = ["info": "infoFromiPhone"]
                 try WCSession.default().updateApplicationContext(dictionary)
             
             } catch let error as NSError {
@@ -54,22 +55,19 @@ class ViewController: UIViewController, WCSessionDelegate {
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?){
-        let a = 2
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        let a = 2
     }
     
     func sessionDidDeactivate(_ session: WCSession){
-        let a = 2
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         self.messageLabel.text = message["b"]! as? String
     }
     
-    func sendPurchasedMoviesToPhone(_ notification:Notification) {
+    /*func sendPurchasedMoviesToPhone(_ notification:Notification) {
         // 1
         if WCSession.isSupported() {
             // 2
@@ -80,12 +78,14 @@ class ViewController: UIViewController, WCSessionDelegate {
                     print("ERROR: \(error)")
                 }
         }
-    }
+    }*/
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        let movies = applicationContext["movies"]
-            // 3
-    
+        let info = applicationContext["info"] as! String
+        
+        DispatchQueue.main.async {
+            self.messageLabel.text = info
+        }
     }
 }
 

@@ -47,7 +47,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
         if WCSession.isSupported() {
             // 2
             do {
-                let dictionary = ["movies": "test"]
+                let dictionary = ["info": "infoFromWatch"]
                 try WCSession.default().updateApplicationContext(dictionary)
                 
             } catch {
@@ -60,16 +60,19 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate{
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?){
-        let a = 2
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        self.messageLabel.setText(message["a"]! as? String)
+        //self.messageLabel.setText(message["a"]! as? String)
 
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        let movies = applicationContext["movies"]
+        let info = applicationContext["info"] as! String
+        
+        DispatchQueue.main.async {
+            self.messageLabel.setText(info)
+        }
            
     }
     //private func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
