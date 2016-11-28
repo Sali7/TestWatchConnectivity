@@ -3,7 +3,6 @@
 //  TestWatchConnectivity
 //
 //  Created by Mohamed Salah Bouabane on 15.11.16.
-//  Copyright © 2016 CSTx IT-Professional. All rights reserved.
 //
 
 import UIKit
