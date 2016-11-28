@@ -14,7 +14,9 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchApp" customModuleProvider="target">
                     <items>
-                        <label width="135" alignment="left" text="Label" textAlignment="center" id="KZM-Fo-iFB"/>
+                        <label width="135" alignment="left" text="Label" textAlignment="center" id="KZM-Fo-iFB">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
                         <button width="1" alignment="left" title="Button" id="QoJ-yo-S5x">
                             <connections>
                                 <action selector="sendMessageToPhone" destination="AgC-eL-Hgc" id="B6u-Xb-rIM"/>

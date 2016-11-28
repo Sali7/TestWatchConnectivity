@@ -2,7 +2,7 @@
 //  ExtensionDelegate.swift
 //  WatchApp Extension
 //
-//  Created by Maik Koslowski on 15.11.16.
+//  Created by Mohamed Salah Bouabane on 15.11.16.
 //  Copyright © 2016 CSTx IT-Professional. All rights reserved.
 //
 
